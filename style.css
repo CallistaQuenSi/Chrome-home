@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+  color: #222;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-image: url("wallpaperflare.com_wallpaper.jpg");
+  background-size: cover;
+  transition: background-image 0.5s ease;
+}
+
+.dark-mode{
+  background-image: url("night1.jpg");
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  perspective: 1000px;
+}
+
+.clock {
+  font-size: 72px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s, transform 0.5s;
+  animation: fade-in 1s ease-in-out 0.5s forwards;
+}
+
+.dark-mode .clock{
+  color: white;
+  text-shadow: 2px 2px 4px rgba(220, 220, 220, 0.3);
+}
+
+.calendar {
+  font-size: 24px;
+  
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s, transform 0.5s;
+  animation: fade-in 1s ease-in-out 1s forwards;
+}
+
+/* shortcut */
+.shortcuts ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.shortcuts li {
+  margin-bottom: 10px;
+}
+
+.shortcuts a {
+  color: #222;
+  text-decoration: none;
+}
+
+.dark-mode .shortcuts a{
+  color: white;
+}
+
+.shortcuts li a i {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  margin-bottom: -5px;
+}
+
+
+.quote {
+  font-style: italic;
+  
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s, transform 0.5s;
+  animation: fade-in 1s ease-in-out 1.5s forwards;
+}
+
+/* Parallax effect */
+.container {
+  overflow: hidden;
+}
+
+.clock,
+.calendar,
+.shortcuts,
+.quote {
+  transform: translateZ(-30px) scale(0.9);
+  transition: transform 0.5s;
+}
+
+.container:hover .clock,
+.container:hover .calendar,
+.container:hover .shortcuts,
+.container:hover .quote {
+  transform: translateZ(0) scale(1);
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ... searchig button ... */
+
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#search-input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+#search-button {
+  padding: 10px 20px;
+  background-color: #f2f2f2;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#search-button:hover {
+  background-color: #e6e6e6;
+}
+
+
+.handwriting {
+  font-family: 'Pacifico', cursive;
+}
+
+@keyframes handwriting {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+    text-shadow: 4px 2px 8px #00aaff;
+  }
+}
+
+.handwriting {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: handwriting 6s steps(100) forwards;
+  animation-fill-mode: both;
+  text-align: center;
+  font-size: 35px;
+}
+
